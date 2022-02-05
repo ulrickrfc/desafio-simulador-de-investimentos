@@ -5,7 +5,9 @@ export default function Results(){
     return(
         <>
         <section className='results'>
-            <h1>Resultado da simulação</h1>
+            <div className='results-title'>
+                <h1>Resultado da simulação</h1>
+            </div>
 
             <div className='results-container'>
 

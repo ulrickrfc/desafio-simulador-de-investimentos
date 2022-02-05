@@ -2,13 +2,13 @@
 
 .simulator{
     margin: 2% 0;
-    margin-left: 2.5%;
-    width: 70%;
-    padding-left: 2.5%;
+    /* margin-left: 2.5%; */
+    /* width: 70%; */
+    /* padding-left: 2.5%; */
     background-color: #efefef;
 }
 .simulator h1{
-    font-size: 2em;
+    font-size: 1.5em;
     margin-bottom: 35px;
 
 
@@ -150,5 +150,15 @@ background-color: #ed8e53 ;
     .btn-finals{
         flex-direction: column;
     }
+    .input-info-1, .input-info-2 {
+        width: auto;
+    }
     
+    .form-container{
+        display: inherit;
+        width: auto;
+    }
+    .rendimento-form, .indexacao-form{
+        width: auto;
+    }
 }
