@@ -1,0 +1,35 @@
+.results{
+    margin: 2% 0;
+    margin-right: 2.5%;
+    width: 100%;
+    background-color: #efefef;
+}
+.results h1{
+    font-size: 2em;
+    margin-bottom: 35px;
+}
+
+.results-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    row-gap: 35px;
+    column-gap: 10px;
+    justify-content: space-between;
+}
+
+.result{
+    width: 200px;
+    height: 80px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.result > * {
+    padding: 5px;
+}
+.result{
+    box-shadow: 0px 0px 7px 1px rgba(0,0,0,0.16);
+}
