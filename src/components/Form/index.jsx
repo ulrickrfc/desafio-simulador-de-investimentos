@@ -1,106 +1,130 @@
-import styles from './styles.css'
+import FormButtons from '../FormButtons'
+import SelectButton from '../SelectButton'
+import Input from '../Input'
+import CDI from '../CDI'
+import IPCA from '../IPCA'
 
+import './styles.css'
 
-export default function Form(){
-    return(
-        <>
-         
-        <div className='simulator'>
-           
-            <div className='simulator-forms'>
-                <h1>Simulador</h1>
+export default function Form({ setSimulation, simulation, simulate }) {
+  //     if(!isNaN(+initialContribution) || !isNaN(+monthlyContribution) || !isNaN(+deadline)  || !isNaN(+rentability)){
+  //         //if([initalContribution, monthlyContribution, deadline, rentability].forEach(value =>{
+  //         // return typeof value === 'number' && checkError(true)
+  //        // }))
+  //         checkError(false)
 
-                    <div className='form-container'>
+  //         setSimulation({
+  //             initialContribution, //initialContribution:initialContribution
+  //             monthlyContribution,
+  //             deadline,
+  //             rentability,
+  //             revenue,
+  //             indexing
+  //         })
 
-                        <div className='form-select'>
+  //     } else{
+  //         checkError(true)
+  //     }
+  // },[initialContribution, monthlyContribution, deadline, rentability,revenue, indexing])
+  const handleChange = (e) => {
+    if (
+      !isNaN(+simulation.initialContribution) ||
+      !isNaN(+simulation.monthlyContribution) ||
+      !isNaN(+simulation.deadline) ||
+      !isNaN(+simulation.rentability)
+    ) {
+      setSimulation((prev) => {
+        return {
+          ...prev,
+          [e.target.name]: e.target.value,
+          checkError: false
+        }
+      })
+    } else {
+      setSimulation((prev) => {
+        return {
+          ...prev,
+          checkError: true
+        }
+      })
+    }
+  }
 
-                                <div className='rendimento-form'>
-                                    
-                                    <div className='form-select-title'>
-                                        <h3>Rendimento</h3>
-                                        <i class="bi bi-info-circle"></i>
-                                    </div>
+  const clearData = () => {
+    setSimulation({
+      initialContribution: '',
+      monthlyContribution: '',
+      deadline: '',
+      rentability: '',
+      revenue: 'bruto',
+      indexing: 'pos',
+      showResults: false
+    })
+  }
 
-                                    <div className='form-btns-select'>
-                                        <button className='btn-active btn-bruto'><i class="bi bi-check-lg"></i>Bruto</button>
-                                        <button className='btn-liquido'>Liquido</button>
-                                    </div>
-                                </div>
-                                
-                                <div className='indexacao-form'>
-                                    <div className='form-select-title'>
-                                        <h3>Tipos de indexacao</h3>
-                                        <i class="bi bi-info-circle"></i>
-                                    </div>
-
-                                    <div className='form-btns-select'>
-                                        <button className='btn-pre'>PRÉ</button>
-                                        <button className='btn-pos btn-active'><i class="bi bi-check-lg"></i>PÓS</button>
-                                        <button className='btn-fixado'>FIXADO</button>
-                                    </div>
-                                    
-                                </div>
-                                
-                            </div>
-                        </div>
-                    
-
-                        <form className='input-form'>
-
-                            <div className='input-info-1'>
-
-                                <div className='input'>
-                                    <label htmlFor="">Aporte Inicial</label>
-                                    <input type="text" />
-                                    <span>isWrog</span>
-                                </div>
-
-                                <div className='input'>
-                                    <label htmlFor="">Prazo (em meses)</label>
-                                    <input type="text" />
-                                    <span>isWrog</span>
-                                </div>
-
-                                <div className='input'>
-                                    <label htmlFor="">IPCA (ao ano)</label>
-                                    <input type="text" />
-                                    <span>isWrog</span>
-                                </div>
-
-                            </div>
-
-                            <div className='input-info-2'>
-
-                                <div className='input'>
-                                    <label htmlFor="">Aporte Mensal</label>
-                                    <input type="text" />
-                                    <span>isWrog</span>
-                                </div>
-
-                                <div className='input'>
-                                    <label htmlFor="">Rentabilidade</label>
-                                    <input type="text" />
-                                    <span>isWrog</span>
-                                </div>
-
-                                <div className='input'>
-                                    <label htmlFor="">CDI (ao ano)</label>
-                                    <input type="text" />
-                                    <span>isWrog</span>
-                                </div>
-
-                            </div>
-
-                        </form>
-
-                        <div className='btn-finals'>
-                            <button className='clean-data-btn'>Limpar campos</button>
-                            <button className='simulate-btn'>Simular</button>
-                        </div>
-
-                    </div>
-                </div>
-
-            </>
-    )
+  return (
+    <>
+      <div className="simulator">
+        <h1>Simulador</h1>
+        <div className="buttons-container">
+          <SelectButton
+            name={'revenue'}
+            onChange={handleChange}
+            title={'Rendimento'}
+            revenue={simulation.revenue}
+            data={[
+              { value: 'bruto', name: 'Bruto' },
+              { value: 'liquido', name: 'Líquido' }
+            ]}
+          />
+          <SelectButton
+            name={'indexing'}
+            title={'Tipos de indexação'}
+            onChange={handleChange}
+            indexing={simulation.indexing}
+            data={[
+              { value: 'pre', name: 'PRÉ' },
+              { value: 'pos', name: 'PÓS' },
+              { value: 'ipca', name: 'FIXADO' }
+            ]}
+          />
+        </div>
+        <form>
+          <Input
+            name={'initialContribution'}
+            onChange={handleChange}
+            title="Aporte Inicial"
+            value={simulation.initialContribution}
+            errorMessage={'Aporte deve ser um número'}
+          />
+          <Input
+            name={'monthlyContribution'}
+            onChange={handleChange}
+            title="Aporte Mensal"
+            value={simulation.monthlyContribution}
+            errorMessage={'Aporte deve ser um número'}
+          />
+          <Input
+            name={'deadline'}
+            onChange={handleChange}
+            title="Prazo"
+            value={simulation.deadline}
+            errorMessage={'Aporte deve ser um número'}
+          />
+          <Input
+            name={'rentability'}
+            onChange={handleChange}
+            title="CDI"
+            value={simulation.rentability}
+            errorMessage={'Aporte deve ser um número'}
+          />
+          <IPCA />
+          <CDI />
+        </form>
+        <div className="form-buttons">
+          <FormButtons simulate={simulate} clearForm={clearData} />
+        </div>
+      </div>
+    </>
+  )
 }

@@ -1,164 +1,19 @@
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css");
 
 .simulator{
-    margin: 2% 0;
-    /* margin-left: 2.5%; */
-    /* width: 70%; */
-    /* padding-left: 2.5%; */
-    background-color: #efefef;
-}
-.simulator h1{
-    font-size: 1.5em;
-    margin-bottom: 35px;
-
-
-}
-.simulator-title{
-    display: flex;
-    justify-content: center;
-}
-/* ///////// BOTOES RENDIMENTO E INDEXACAO ///////// */
-button{
-    cursor: pointer;
-    border: none;
+    width: 600px;
 }
 
-.form-select{
-    display: flex;
-    flex-direction: row;
-    gap: 100px;
-    /* width: 100%; */
-    justify-content: space-between;
-}
-.form-select button{
-    border: 1px solid black;
-    padding: 15px;
-}
-.form-select-title{
-    width: 100%;
+.buttons-container{
     display: flex;
     justify-content: space-between;
-    padding-bottom: 10px;
-}
-
-.btn-liquido,  .btn-fixado{
-    border-radius: 0px 8px 8px 0px;
-}
-
-.form-container{
-    width: 100%;
-    display: flex;
-}
-.btn-bruto,  .btn-pre{
-    border-radius: 8px 0px 0px 8px;
-}
-
-.btns-indexacao{
-}
-.form-btns-select{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-}
-.form-btns-select button{
-    padding: 10px;
-    flex-direction: row;
-    width: 100%;
-    justify-content: center;
-}
-.btn-active{
-    background-color: #ed8e53;
-    color: #fff;
-}
-
-/* ///////// ITENS DE FORMULARIO ///////// */
-label{
-    padding: 10px 0;
-}
-input{
-    outline: none;
-    border: none;
-    background-color: #efefef;
-
-}
-form input {
-    border-bottom: 1.5px solid black;
-    padding: 8px 0;
-    font-size: 1.2em;
 }
 
 form{
     display: flex;
     flex-direction: row;
-    gap: 100px;
-}
-.rendimento-form, .indexacao-form{
-    width: 200px;
-}
-.input-info-1, .input-info-2{
-    display: flex;
-    flex-direction: column;
-    width: 200px;
-
+    flex-wrap: wrap;
+    justify-content: space-between;
+    column-gap: 30px;
+    margin-bottom: 30px;
 }
 
-.input{
-    display: flex;
-    flex-direction: column;
-}
-
-span{
-    color: red;
-}
-
-/* ///////// BOTOES LIMPAR CAMPOS E SIMULAR ///////// */
-.btn-finals{
-    display: flex;
-    gap:20px
-}
-
-.btn-finals button{
-    display: flex;
-    width: 250px;
-    display: flex;
-    justify-content: center;
-    padding: 15px 25px;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: bold;
-    margin: 25px 0;
-}
-.btn-finals button:first-child{
-    border: 1.5px solid black;
-}
-.btn-finals button:last-child{
-background-color: #ed8e53 ;
-}
-
-.resto{
-    width: 100%;
-    background-color: black;
-}
-
-@media (max-width: 768px) {
-    .form-select{
-        flex-direction: column;
-    }
-    form{
-        flex-direction: column;
-    }
-    .btn-finals{
-        flex-direction: column;
-    }
-    .input-info-1, .input-info-2 {
-        width: auto;
-    }
-    
-    .form-container{
-        display: inherit;
-        width: auto;
-    }
-    .rendimento-form, .indexacao-form{
-        width: auto;
-    }
-}

@@ -1,27 +1,24 @@
-import './App.css';
-import Form from './components/Form';
-import Results from './components/Results';
+import './App.css'
+
+import Home from './pages/Home'
+import { useImmerReducer } from 'use-immer'
+import investmenthooks, { initialState } from './store/investestiments'
+// eslint-disable-next-line no-unused-vars
+import services from './services'
+
+import StateContext from '../src/hooks/StateContext'
+import DispatchContext from '../src/hooks/DispatchContext'
 
 function App() {
+  const [state, dispatch] = useImmerReducer(investmenthooks, initialState)
+
   return (
-    <>
-
-   
-
-      <div className='sup'>
-        
-        <div className='simulator-title'>
-          <h2>Simulador de investimentos</h2>
-        </div>
-
-        <div className='onSide'>
-          <Form/>
-          <Results/>
-        </div>
-
-      </div>
-    </>
-  );
+    <StateContext.Provider value={state}>
+      <DispatchContext.Provider value={dispatch}>
+        <Home />
+      </DispatchContext.Provider>
+    </StateContext.Provider>
+  )
 }
 
-export default App;
+export default App
