@@ -1,8 +1,10 @@
 
 .simulator{
-    width: 600px;
+    max-width: 35rem;
 }
-
+.simulator h1{
+    margin-bottom: 1rem;
+}
 .buttons-container{
     display: flex;
     justify-content: space-between;
@@ -17,3 +19,13 @@ form{
     margin-bottom: 30px;
 }
 
+
+/* 
+@media (max-width: 1000px) {
+    .simulator{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+  
+    } */

@@ -10,6 +10,7 @@
     border-radius: 8px;
     font-size: 20px;
     font-weight: bold;
+    cursor:pointer;
 }
 
 .form-buttons button:first-child{
@@ -18,4 +19,18 @@
 
 .form-buttons button:last-child{
     background-color: #969696;
+}
+#form-btn-active{
+    background-color: #ed8e53
+}
+@media (max-width: 1000px) {
+    .form-buttons{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .form-buttons button{
+        width: 14.8rem;
+
+
+    }
 }

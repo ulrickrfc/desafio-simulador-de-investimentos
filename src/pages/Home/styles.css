@@ -1,6 +1,6 @@
 .container{
     background-color: #efefef;
-    max-width: 95%;
+    max-width: 90rem;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -13,4 +13,13 @@
 .form-container{
     display: flex;
     padding: 2.5%;
+    column-gap: 4rem;
 }
+@media (max-width: 1000px) {
+    .form-container{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+  
+    }

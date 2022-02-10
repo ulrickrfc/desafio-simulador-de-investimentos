@@ -3,8 +3,8 @@ import SelectButton from '../SelectButton'
 import Input from '../Input'
 import CDI from '../CDI'
 import IPCA from '../IPCA'
-
 import './styles.css'
+import { isValid } from '../../utils'
 
 export default function Form({ setSimulation, simulation, simulate }) {
   //     if(!isNaN(+initialContribution) || !isNaN(+monthlyContribution) || !isNaN(+deadline)  || !isNaN(+rentability)){
@@ -27,27 +27,68 @@ export default function Form({ setSimulation, simulation, simulate }) {
   //     }
   // },[initialContribution, monthlyContribution, deadline, rentability,revenue, indexing])
   const handleChange = (e) => {
+    setSimulation((prev) => {
+      return {
+        ...prev,
+        [e.target.name]: e.target.value
+      }
+    })
     if (
-      !isNaN(+simulation.initialContribution) ||
-      !isNaN(+simulation.monthlyContribution) ||
-      !isNaN(+simulation.deadline) ||
-      !isNaN(+simulation.rentability)
+      !(
+        !isValid(simulation.initialContribution) ||
+        !isValid(simulation.monthlyContribution) ||
+        !isValid(simulation.deadline) ||
+        !isValid(simulation.rentability) ||
+        simulation.initialContribution == '' ||
+        simulation.monthlyContribution == '' ||
+        simulation.deadline == '' ||
+        simulation.rentability == ''
+      )
     ) {
-      setSimulation((prev) => {
-        return {
-          ...prev,
-          [e.target.name]: e.target.value,
-          checkError: false
-        }
-      })
-    } else {
       setSimulation((prev) => {
         return {
           ...prev,
           checkError: true
         }
       })
+    } else {
+      setSimulation((prev) => {
+        return {
+          ...prev,
+          checkError: false
+        }
+      })
     }
+    console.log(simulation.checkError)
+    // if (
+    //   !isValid(simulation.initialContribution) ||
+    //   !isValid(simulation.monthlyContribution) ||
+    //   !isValid(simulation.deadline) ||
+    //   !isValid(simulation.rentability) ||
+    //   simulation.initialContribution == '' ||
+    //   simulation.monthlyContribution == '' ||
+    //   simulation.deadline == '' ||
+    //   simulation.rentability == ''
+    // ) {
+    //   setSimulation((prev) => {
+    //     return {
+    //       ...prev,
+    //       checkError: true
+    //     }
+    //   })
+    // } else {
+    //   setSimulation((prev) => {
+    //     return {
+    //       ...prev,
+    //       checkError: false
+    //     }
+    //   })
+    // }
+
+    // console.log(simulation)
+    // console.log(simulation.initialContribution)
+
+    // console.log(isValid(simulation.initialContribution))
   }
 
   const clearData = () => {
@@ -58,7 +99,8 @@ export default function Form({ setSimulation, simulation, simulate }) {
       rentability: '',
       revenue: 'bruto',
       indexing: 'pos',
-      showResults: false
+      showResults: false,
+      checkError: true
     })
   }
 
@@ -121,8 +163,12 @@ export default function Form({ setSimulation, simulation, simulate }) {
           <IPCA />
           <CDI />
         </form>
-        <div className="form-buttons">
-          <FormButtons simulate={simulate} clearForm={clearData} />
+        <div className="form-buttonss">
+          <FormButtons
+            simulate={simulate}
+            clearForm={clearData}
+            simulation={simulation}
+          />
         </div>
       </div>
     </>

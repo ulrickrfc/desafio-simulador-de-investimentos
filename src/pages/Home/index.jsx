@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Form from '../../components/Form'
 import Results from '../../components/Results'
 import './styles.css'
+import { isValid } from '../../utils'
 
 export default function Home() {
   // const [haveError, setHaveError] = useState();
@@ -13,24 +14,61 @@ export default function Home() {
     rentability: '',
     revenue: 'bruto',
     indexing: 'pos',
-    showResults: false
+    showResults: false,
+    checkError: true
   })
 
-  const [results, setResults] = useState()
+  const [results, setResults] = useState([])
 
   async function simulate() {
-    console.log(simulation.indexing)
-    console.log(simulation.revenue)
-    try {
-      const response = await Axios.get(
-        `/simulacoes?tipoIndexacao=${simulation.indexing}&tipoRendimento=${simulation.revenue}`
+    if (
+      !(
+        !isValid(simulation.initialContribution) ||
+        !isValid(simulation.monthlyContribution) ||
+        !isValid(simulation.deadline) ||
+        !isValid(simulation.rentability) ||
+        simulation.initialContribution == '' ||
+        simulation.monthlyContribution == '' ||
+        simulation.deadline == '' ||
+        simulation.rentability == ''
       )
-      setResults(response.data[0])
-      setSimulation((prev) => {
-        return { ...prev, showResults: true }
-      })
-    } catch {
-      console.log('had a error')
+    ) {
+      try {
+        const response = await Axios.get(
+          `/simulacoes?tipoIndexacao=${simulation.indexing}&tipoRendimento=${simulation.revenue}`
+        )
+        setResults([
+          {
+            name: 'Valor final Bruto',
+            value: response.data[0].valorFinalBruto
+          },
+          {
+            name: 'Alíquota do IR',
+            value: response.data[0].aliquotaIR
+          },
+          {
+            name: 'Valor Pago em IR',
+            value: response.data[0].valorPagoIR
+          },
+          {
+            name: 'Valor Final Líquido',
+            value: response.data[0].valorFinalLiquido
+          },
+          {
+            name: 'Valor Total Investido',
+            value: response.data[0].valorTotalInvestido
+          },
+          {
+            name: 'Ganho Líquido',
+            value: response.data[0].ganhoLiquido
+          }
+        ])
+        setSimulation((prev) => {
+          return { ...prev, showResults: true }
+        })
+      } catch {
+        console.log('had a error')
+      }
     }
   }
 
