@@ -1,9 +1,11 @@
 
 .simulator{
-    max-width: 35rem;
+    max-width: 38rem;
 }
-.simulator h1{
+.simulator-title{
+    display: flex;
     margin-bottom: 1rem;
+
 }
 .buttons-container{
     display: flex;
@@ -16,16 +18,29 @@ form{
     flex-wrap: wrap;
     justify-content: space-between;
     column-gap: 30px;
-    margin-bottom: 30px;
 }
 
 
-/* 
-@media (max-width: 1000px) {
+
+@media (max-width: 1500px) {
     .simulator{
+        margin: 0 auto;
+        max-width: 45rem;
+    }
+    .results{
+        margin: 0 auto;
+        max-width: 45rem;
+    }
+    .simulator-title{
         display: flex;
         justify-content: center;
-        flex-direction: column;
+        margin: 2rem auto
+    
     }
   
-    } */
+    }
+    @media  (max-width: 599px){
+        form{
+            justify-content: center;
+        }
+    }

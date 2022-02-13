@@ -1,12 +1,11 @@
 import Axios from 'axios'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Form from '../../components/Form'
 import Results from '../../components/Results'
 import './styles.css'
 import { isValid } from '../../utils'
 
 export default function Home() {
-  // const [haveError, setHaveError] = useState();
   const [simulation, setSimulation] = useState({
     initialContribution: '',
     monthlyContribution: '',
@@ -19,8 +18,10 @@ export default function Home() {
   })
 
   const [results, setResults] = useState([])
+  const [error, setError] = useState(true)
 
-  async function simulate() {
+  useEffect(() => {
+    console.log(simulation)
     if (
       !(
         !isValid(simulation.initialContribution) ||
@@ -33,6 +34,19 @@ export default function Home() {
         simulation.rentability == ''
       )
     ) {
+      setError(false)
+    } else {
+      setError(true)
+    }
+  }, [
+    simulation.initialContribution,
+    simulation.monthlyContribution,
+    simulation.deadline,
+    simulation.rentability
+  ])
+
+  async function simulate() {
+    if (!error) {
       try {
         const response = await Axios.get(
           `/simulacoes?tipoIndexacao=${simulation.indexing}&tipoRendimento=${simulation.revenue}`
@@ -75,14 +89,14 @@ export default function Home() {
   return (
     <div className="container">
       <div className="title">
-        <h2>Simulador de investimentos</h2>
+        <h1>Simulador de investimentos</h1>
       </div>
       <div className="form-container">
         <Form
-          // checkError={setHaveError}
           setSimulation={setSimulation}
           simulation={simulation}
           simulate={simulate}
+          error={error}
         />
         {simulation.showResults ? <Results data={results} /> : ''}
       </div>

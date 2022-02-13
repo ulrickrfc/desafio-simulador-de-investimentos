@@ -1,13 +1,15 @@
 .container{
     background-color: #efefef;
-    max-width: 90rem;
+    /* max-width: 90rem; */
+    width: 94vw;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     margin-top: 2.5%;
 }
 .title{
-    margin: 0 auto;   
+    margin: 0 auto; 
+    padding-top: 2rem;  
 }
 
 .form-container{
@@ -15,11 +17,16 @@
     padding: 2.5%;
     column-gap: 4rem;
 }
-@media (max-width: 1000px) {
+@media (max-width: 1500px) {
     .form-container{
         display: flex;
         justify-content: center;
         flex-direction: column;
     }
   
+}
+@media (max-width: 599px) {
+    .title h1{
+font-size: 1.6rem;
     }
+}

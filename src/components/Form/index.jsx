@@ -4,91 +4,17 @@ import Input from '../Input'
 import CDI from '../CDI'
 import IPCA from '../IPCA'
 import './styles.css'
-import { isValid } from '../../utils'
+import { unMask } from 'remask'
 
-export default function Form({ setSimulation, simulation, simulate }) {
-  //     if(!isNaN(+initialContribution) || !isNaN(+monthlyContribution) || !isNaN(+deadline)  || !isNaN(+rentability)){
-  //         //if([initalContribution, monthlyContribution, deadline, rentability].forEach(value =>{
-  //         // return typeof value === 'number' && checkError(true)
-  //        // }))
-  //         checkError(false)
-
-  //         setSimulation({
-  //             initialContribution, //initialContribution:initialContribution
-  //             monthlyContribution,
-  //             deadline,
-  //             rentability,
-  //             revenue,
-  //             indexing
-  //         })
-
-  //     } else{
-  //         checkError(true)
-  //     }
-  // },[initialContribution, monthlyContribution, deadline, rentability,revenue, indexing])
+export default function Form({ setSimulation, simulation, simulate, error }) {
   const handleChange = (e) => {
     setSimulation((prev) => {
+      console.log(e.target.value)
       return {
         ...prev,
-        [e.target.name]: e.target.value
+        [e.target.name]: unMask(e.target.value)
       }
     })
-    if (
-      !(
-        !isValid(simulation.initialContribution) ||
-        !isValid(simulation.monthlyContribution) ||
-        !isValid(simulation.deadline) ||
-        !isValid(simulation.rentability) ||
-        simulation.initialContribution == '' ||
-        simulation.monthlyContribution == '' ||
-        simulation.deadline == '' ||
-        simulation.rentability == ''
-      )
-    ) {
-      setSimulation((prev) => {
-        return {
-          ...prev,
-          checkError: true
-        }
-      })
-    } else {
-      setSimulation((prev) => {
-        return {
-          ...prev,
-          checkError: false
-        }
-      })
-    }
-    console.log(simulation.checkError)
-    // if (
-    //   !isValid(simulation.initialContribution) ||
-    //   !isValid(simulation.monthlyContribution) ||
-    //   !isValid(simulation.deadline) ||
-    //   !isValid(simulation.rentability) ||
-    //   simulation.initialContribution == '' ||
-    //   simulation.monthlyContribution == '' ||
-    //   simulation.deadline == '' ||
-    //   simulation.rentability == ''
-    // ) {
-    //   setSimulation((prev) => {
-    //     return {
-    //       ...prev,
-    //       checkError: true
-    //     }
-    //   })
-    // } else {
-    //   setSimulation((prev) => {
-    //     return {
-    //       ...prev,
-    //       checkError: false
-    //     }
-    //   })
-    // }
-
-    // console.log(simulation)
-    // console.log(simulation.initialContribution)
-
-    // console.log(isValid(simulation.initialContribution))
   }
 
   const clearData = () => {
@@ -107,7 +33,9 @@ export default function Form({ setSimulation, simulation, simulate }) {
   return (
     <>
       <div className="simulator">
-        <h1>Simulador</h1>
+        <div className="simulator-title">
+          <h2>Simulador</h2>
+        </div>
         <div className="buttons-container">
           <SelectButton
             name={'revenue'}
@@ -149,7 +77,7 @@ export default function Form({ setSimulation, simulation, simulate }) {
           <Input
             name={'deadline'}
             onChange={handleChange}
-            title="Prazo"
+            title="Prazo (em meses)"
             value={simulation.deadline}
             errorMessage={'Aporte deve ser um número'}
           />
@@ -163,11 +91,12 @@ export default function Form({ setSimulation, simulation, simulate }) {
           <IPCA />
           <CDI />
         </form>
-        <div className="form-buttonss">
+        <div className="form-buttons-container">
           <FormButtons
             simulate={simulate}
             clearForm={clearData}
             simulation={simulation}
+            error={error}
           />
         </div>
       </div>

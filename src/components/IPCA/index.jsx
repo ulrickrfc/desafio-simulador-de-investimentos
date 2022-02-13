@@ -10,7 +10,7 @@ export default function IPCA() {
     async function fetchIPCA() {
       try {
         const response = await Axios.get('/indicadores?nome=ipca')
-        setIPCA(response.data[0].valor)
+        setIPCA(response.data[0].valor.toString().replace('.', ','))
         setLoad(true)
         console.log(response.data)
       } catch (e) {
@@ -24,7 +24,9 @@ export default function IPCA() {
     <>
       <div className="input">
         <label htmlFor="">IPCA (ao ano)</label>
-        <input type="text" value={load ? `${IPCA}%` : ''} />
+        <div className="input-container">
+          <input t type="text" value={load ? `${IPCA}%` : ''} />
+        </div>
       </div>
     </>
   )

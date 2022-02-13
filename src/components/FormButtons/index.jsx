@@ -1,6 +1,5 @@
-import { isValid } from '../../utils'
 import './styles.css'
-export default function FormButtons({ clearForm, simulate, simulation }) {
+export default function FormButtons({ clearForm, simulate, error }) {
   return (
     <>
       <div className="form-buttons">
@@ -14,18 +13,7 @@ export default function FormButtons({ clearForm, simulate, simulation }) {
         </button>
 
         <button
-          id={`${
-            !isValid(simulation.initialContribution) ||
-            !isValid(simulation.monthlyContribution) ||
-            !isValid(simulation.deadline) ||
-            !isValid(simulation.rentability) ||
-            simulation.initialContribution == '' ||
-            simulation.monthlyContribution == '' ||
-            simulation.deadline == '' ||
-            simulation.rentability == ''
-              ? ''
-              : 'form-btn-active'
-          }`}
+          id={`${error ? '' : 'form-btn-active'}`}
           onClick={() => {
             simulate()
           }}

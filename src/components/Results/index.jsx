@@ -5,7 +5,9 @@ export default function Results({ data }) {
   return (
     <>
       <div className="results">
-        <h1>Resultado da simulação</h1>
+        <div className="results-title">
+          <h2>Resultado da simulação</h2>
+        </div>
         <section>
           {data.map((result, index) => (
             <Result key={index} name={result.name} value={result.value} />

@@ -12,10 +12,20 @@
     font-weight: bold;
 }
 .result p:first-child{
-    margin-top: 0.3rem;
+    margin-top: 0.4rem;
 }
 .result p:last-child{
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.4rem;
 
+}
 
+.active-result{
+    color: #5cae4f;
+}
+@media (max-width: 1500px) {
+
+.results{
+    width: 46rem;
+    align-self: center;
+}
 }

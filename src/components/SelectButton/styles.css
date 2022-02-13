@@ -1,12 +1,15 @@
 .buttons-container{
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 3rem;
+    margin-right: 1rem;
 
 }
 .button-container{
     width: 14.8rem;
     display: flex;
     flex-direction: column;
+    
 }
 .button-info{
     display: flex;
@@ -35,3 +38,26 @@
     background-color: #ed8e53;
     color: #fff;
 }
+
+
+@media only screen and (min-width: 200px) and (max-width: 1500px) {
+    .buttons-container{
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 3rem;
+    
+    }
+  
+    }
+    
+@media  (max-width: 599px){
+
+        .buttons-container{
+        flex-wrap: nowrap;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            row-gap: 2rem;
+            margin-right: 0;
+        }
+    }

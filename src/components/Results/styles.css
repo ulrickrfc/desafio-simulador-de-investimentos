@@ -3,16 +3,40 @@
     flex-direction: column;
     width: 100%;
 }
-.results h1{
+.results-title{
+    display: flex;
     margin-bottom: 1rem;
 }
+
+
 .results section{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     row-gap: 2.5rem;
 }
 @media (max-width: 1000px) {
+    .results section{
+        justify-content: center;
+    }
+}
+@media (max-width: 1500px) {
+
+
+    .results section{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        column-gap: 15px;
+    }
+
+    .results-title {
+        justify-content: center;
+        margin: 3rem auto;
+    }
+    }
+        
+@media  (max-width: 563px){
+
     .results section{
         justify-content: center;
     }

@@ -2,14 +2,19 @@ import { useEffect, useState } from 'react'
 import Axios from 'axios'
 
 export default function CDI() {
-  const [CDI, setCDI] = useState('')
+  const [CDI, setCDI] = useState()
   const [load, setLoad] = useState(false)
+
+  // function returnString(number) {
+  //   return number.toString()
+  // }
 
   useEffect(() => {
     async function fetchCDI() {
       try {
         const response = await Axios.get('/indicadores?nome=cdi')
-        setCDI(response.data[0].valor)
+        setCDI(response.data[0].valor.toString().replace('.', ','))
+
         setLoad(true)
         console.log(response.data)
       } catch (e) {
@@ -23,7 +28,9 @@ export default function CDI() {
     <>
       <div className="input">
         <label htmlFor="">CDI (ao ano)</label>
-        <input type="text" value={load ? `${CDI}%` : ''} />
+        <div className="input-container">
+          <input type="text" value={load ? `${CDI}%` : ''} />
+        </div>
       </div>
     </>
   )
