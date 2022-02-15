@@ -10,9 +10,12 @@
 
 
 .results section{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    row-gap: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); */
+    row-gap: 2rem;
 }
 @media (max-width: 1000px) {
     .results section{
@@ -41,3 +44,16 @@
         justify-content: center;
     }
 }
+
+/* @media only screen and (max-width: 2000px) and (min-width: 1675px)  {
+
+    .results section{
+        column-gap: 9%;
+    row-gap: 2.5rem;
+    column-gap: 9%;
+    justify-content: center;
+    align-items: center;
+    /* width: 48rem; */
+
+    
+
