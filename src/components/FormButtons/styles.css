@@ -23,7 +23,7 @@
 #form-btn-active{
     background-color: #ed8e53
 }
-@media (max-width: 599px) {
+@media (max-width: 593px) {
     .form-buttons{
         flex-direction: column;
         justify-content: center;

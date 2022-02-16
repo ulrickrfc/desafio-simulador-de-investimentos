@@ -1,11 +1,11 @@
 .container{
     background-color: #efefef;
     /* max-width: 90rem; */
-    width: 94vw;
+    width: 95vw;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    margin-top: 2.5%;
+    margin-top: 2%;
 }
 .title{
     margin: 0 auto; 

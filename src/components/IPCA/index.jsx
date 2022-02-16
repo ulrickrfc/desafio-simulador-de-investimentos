@@ -12,7 +12,6 @@ export default function IPCA() {
         const response = await Axios.get('/indicadores?nome=ipca')
         setIPCA(response.data[0].valor.toString().replace('.', ','))
         setLoad(true)
-        console.log(response.data)
       } catch (e) {
         console.log(e)
       }

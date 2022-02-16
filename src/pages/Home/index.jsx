@@ -6,6 +6,7 @@ import './styles.css'
 import { isValid } from '../../utils'
 
 export default function Home() {
+  // simulation state
   const [simulation, setSimulation] = useState({
     initialContribution: '',
     monthlyContribution: '',
@@ -16,10 +17,11 @@ export default function Home() {
     showResults: false,
     checkError: true
   })
-
   const [results, setResults] = useState([])
+  //error state, verify if is everything in order to make the back-end call
   const [error, setError] = useState(true)
 
+  //Watches the current values on simulation state and verify if has an error
   useEffect(() => {
     console.log(simulation)
     if (
@@ -47,6 +49,7 @@ export default function Home() {
 
   async function simulate() {
     if (!error) {
+      //fetch api data
       try {
         const response = await Axios.get(
           `/simulacoes?tipoIndexacao=${simulation.indexing}&tipoRendimento=${simulation.revenue}`

@@ -7,6 +7,7 @@ import './styles.css'
 import { unMask } from 'remask'
 
 export default function Form({ setSimulation, simulation, simulate, error }) {
+  //handles any input on based on event
   const handleChange = (e) => {
     setSimulation((prev) => {
       console.log(e.target.value)
@@ -16,17 +17,18 @@ export default function Form({ setSimulation, simulation, simulate, error }) {
       }
     })
   }
-
+  //reset the form
   const clearData = () => {
-    setSimulation({
-      initialContribution: '',
-      monthlyContribution: '',
-      deadline: '',
-      rentability: '',
-      revenue: 'bruto',
-      indexing: 'pos',
-      showResults: false,
-      checkError: true
+    setSimulation((prev) => {
+      return {
+        ...prev,
+        initialContribution: '',
+        monthlyContribution: '',
+        deadline: '',
+        rentability: '',
+        showResults: false,
+        checkError: true
+      }
     })
   }
 
@@ -79,14 +81,14 @@ export default function Form({ setSimulation, simulation, simulate, error }) {
             onChange={handleChange}
             title="Prazo (em meses)"
             value={simulation.deadline}
-            errorMessage={'Aporte deve ser um número'}
+            errorMessage={'Prazo deve ser um número'}
           />
           <Input
             name={'rentability'}
             onChange={handleChange}
             title="CDI"
             value={simulation.rentability}
-            errorMessage={'Aporte deve ser um número'}
+            errorMessage={'CDI deve ser um número'}
           />
           <IPCA />
           <CDI />

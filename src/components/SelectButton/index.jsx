@@ -22,6 +22,7 @@ export default function SelectButton({
               value={button.value}
               onClick={onChange}
               className={`${
+                //if the value of the button is the current value, then add active class
                 revenue === button.value || indexing === button.value
                   ? 'btn-active'
                   : ''

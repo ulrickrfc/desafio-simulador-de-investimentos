@@ -33,6 +33,7 @@ export default function Input({ onChange, title, value, errorMessage, name }) {
             maxLength={name == 'deadline' ? '2' : ''}
             type="text"
             value={
+              //verify if the current value is valid. If it is valid, then masks properly the input.
               (isValid(value) && name == 'initialContribution') ||
               name == 'monthlyContribution'
                 ? mask(value, [
@@ -53,6 +54,7 @@ export default function Input({ onChange, title, value, errorMessage, name }) {
         {isValid(value) ? (
           ''
         ) : (
+          //if it isn't valid, then show error message
           <span className="input-error">{errorMessage}</span>
         )}
       </div>

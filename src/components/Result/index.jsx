@@ -1,6 +1,5 @@
 import './styles.css'
 export default function Result({ name, value }) {
-  console.log(name)
   return (
     <div className="result">
       <p>{name}</p>

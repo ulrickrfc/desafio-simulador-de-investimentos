@@ -4,11 +4,7 @@ import Axios from 'axios'
 export default function CDI() {
   const [CDI, setCDI] = useState()
   const [load, setLoad] = useState(false)
-
-  // function returnString(number) {
-  //   return number.toString()
-  // }
-
+  //fetch CDI data when the page is loaded
   useEffect(() => {
     async function fetchCDI() {
       try {

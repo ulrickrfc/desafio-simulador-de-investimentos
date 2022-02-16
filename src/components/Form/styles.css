@@ -39,7 +39,7 @@ form{
     }
   
     }
-    @media  (max-width: 599px){
+    @media  (max-width: 593px){
         form{
             justify-content: center;
         }
