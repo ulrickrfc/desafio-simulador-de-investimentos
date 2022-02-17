@@ -18,4 +18,4 @@ Este desafio tem como objetivo testar os meus conhecimentos relacionados ao fron
 - E execute o comando `npx json-server db.json`.
 - Após isso clone o repositório desta aplicação.
 - Excute o comando `npm install` ou `yarn` para instalar as dependências.
-- Execute o comando: `yarn dev`
+- Execute o comando: `npm run dev` ou `yarn dev`
