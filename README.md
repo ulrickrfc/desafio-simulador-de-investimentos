@@ -1,3 +1,7 @@
+![](img/simulador_1.png)
+![](img/simulador_2.png)
+![](img/simulador_3.png)
+
 ## Sobre
 
 Este desafio tem como objetivo testar os meus conhecimentos relacionados ao front-end reproduzindo uma aplicação capaz de se comunicar com uma API fake. É possível selecionar e preencher campos. Em campos que são esperados números seu tipo de unidade também deverá acompanhar o valor, caso contrário a formatação/máscara é desestruturada e mostrado um aviso de erro. Só é possível fazer uma simulação em caso de todos os campos estarem preenchidos corretamente e não nulos.
@@ -18,4 +22,4 @@ Este desafio tem como objetivo testar os meus conhecimentos relacionados ao fron
 - E execute o comando `npx json-server db.json`.
 - Após isso clone o repositório desta aplicação.
 - Excute o comando `npm install` ou `yarn` para instalar as dependências.
-- Execute o comando: `npm run dev` ou `yarn dev`
+- Execute o comando: `npm run dev` ou `yarn dev`.
