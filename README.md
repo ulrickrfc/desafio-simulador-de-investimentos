@@ -7,7 +7,7 @@ Este desafio tem como objetivo testar os meus conhecimentos relacionados ao fron
 - React como framework SPA.
 - React Hooks: useState, useEffect, remask (para mascarar os valores de alguns inputs).
 - Axios para comunicação com a API.
-- CSS.
+- CSS para estilização.
 - ESLint e Prittier para formatação de código.
 
 ## Instruções de uso
