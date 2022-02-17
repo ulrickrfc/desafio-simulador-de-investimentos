@@ -35,7 +35,7 @@ export default function Input({ onChange, title, value, errorMessage, name }) {
             value={
               //verify if the current value is valid. If it is valid, then masks properly the input.
               (isValid(value) && name == 'initialContribution') ||
-              name == 'monthlyContribution'
+              (isValid(value) && name == 'monthlyContribution')
                 ? mask(value, [
                     '99,99',
                     '999,99',
