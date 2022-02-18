@@ -84,7 +84,7 @@ export default function Home() {
           return { ...prev, showResults: true }
         })
       } catch {
-        console.log('had a error')
+        alert('had a error :(')
       }
     }
   }
@@ -101,7 +101,7 @@ export default function Home() {
           simulate={simulate}
           error={error}
         />
-        {simulation.showResults ? <Results data={results} /> : ''}
+        {simulation.showResults && <Results data={results} />}
       </div>
     </div>
   )

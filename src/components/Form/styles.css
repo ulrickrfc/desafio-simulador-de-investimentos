@@ -1,27 +1,22 @@
-
 .simulator{
     max-width: 38rem;
 }
 .simulator-title{
     display: flex;
     margin-bottom: 1rem;
-
 }
 .buttons-container{
     display: flex;
     justify-content: space-between;
 }
 
-form{
+.form{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     column-gap: 30px;
 }
-
-
-
 @media (max-width: 1500px) {
     .simulator{
         margin: 0 auto;
@@ -35,12 +30,11 @@ form{
         display: flex;
         justify-content: center;
         margin: 2rem auto
-    
     }
   
-    }
+}
     @media  (max-width: 593px){
-        form{
+        .form{
             justify-content: center;
         }
     }

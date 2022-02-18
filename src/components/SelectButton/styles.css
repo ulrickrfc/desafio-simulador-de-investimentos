@@ -3,13 +3,11 @@
     flex-wrap: wrap;
     margin-bottom: 2.5rem;
     margin-right: 1rem;
-
 }
 .button-container{
     width: 14.8rem;
     display: flex;
     flex-direction: column;
-    
 }
 .button-info{
     display: flex;
@@ -17,17 +15,14 @@
     justify-content: space-between;
     margin-bottom: 10px;
 }
-
 .button-values{
     display: flex;
 }
-
 .button-values button{
     width: 100%;
     height: 3.4rem;
     border: 1px solid black
 }
-
 .button-values button:first-child{
     border-radius: 8px 0 0 8px;
 }
@@ -38,26 +33,22 @@
     background-color: #ed8e53;
     color: #fff;
 }
-
-
 @media only screen and (min-width: 200px) and (max-width: 1500px) {
     .buttons-container{
         display: flex;
         flex-wrap: wrap;
         margin-bottom: 3rem;
-    
     }
   
-    }
-    
+}
 @media  (max-width: 593px){
 
-        .buttons-container{
-        flex-wrap: nowrap;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            row-gap: 2rem;
-            margin-right: 0;
-        }
+    .buttons-container{
+    flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 2rem;
+        margin-right: 0;
     }
+}

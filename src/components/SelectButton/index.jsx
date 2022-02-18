@@ -1,6 +1,6 @@
 import './styles.css'
 export default function SelectButton({
-  onChange,
+  onClick,
   title,
   data,
   name,
@@ -20,7 +20,7 @@ export default function SelectButton({
               name={name}
               key={index}
               value={button.value}
-              onClick={onChange}
+              onClick={onClick}
               className={`${
                 //if the value of the button is the current value, then add active class
                 revenue === button.value || indexing === button.value

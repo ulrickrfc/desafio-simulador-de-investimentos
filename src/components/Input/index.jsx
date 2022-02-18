@@ -6,13 +6,13 @@ export default function Input({ onChange, title, value, errorMessage, name }) {
   return (
     <>
       <div className="input">
-        <label htmlFor="" className={`${isValid(value) ? '' : 'input-error'}`}>
+        <label htmlFor="" className={`${!isValid(value) && 'input-error'}`}>
           {' '}
           {title}
         </label>
         <div
           className="input-container"
-          id={`${isValid(value) ? '' : 'input-error'}`}
+          id={`${!isValid(value) && 'input-error'}`}
         >
           {
             <div className="input-price">
@@ -30,7 +30,7 @@ export default function Input({ onChange, title, value, errorMessage, name }) {
             onChange={(e) => {
               onChange(e)
             }}
-            maxLength={name == 'deadline' ? '2' : ''}
+            maxLength={name == 'deadline' && '2'}
             type="text"
             value={
               //verify if the current value is valid. If it is valid, then masks properly the input.
@@ -51,9 +51,7 @@ export default function Input({ onChange, title, value, errorMessage, name }) {
             }
           />
         </div>
-        {isValid(value) ? (
-          ''
-        ) : (
+        {!isValid(value) && (
           //if it isn't valid, then show error message
           <span className="input-error">{errorMessage}</span>
         )}

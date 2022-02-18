@@ -5,9 +5,7 @@
     height: 7rem;
     margin-right: 1rem;
 }
-.input label{
 
-}
 .input input{
     outline: none;
     background-color: #efefef;
@@ -31,16 +29,12 @@
     font-size: 20px;
     padding-bottom: 4.5px;
 
-}.input-hehe span::after{
-    content: " ";
 }
-
 .input-error{
     color: red;
 }
 #input-error{
     border-bottom: 2px solid #ff0000;
-
 }
 @media  (max-width: 563px){
 

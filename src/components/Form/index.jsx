@@ -10,7 +10,6 @@ export default function Form({ setSimulation, simulation, simulate, error }) {
   //handles any input on based on event
   const handleChange = (e) => {
     setSimulation((prev) => {
-      console.log(e.target.value)
       return {
         ...prev,
         [e.target.name]: unMask(e.target.value)
@@ -41,7 +40,7 @@ export default function Form({ setSimulation, simulation, simulate, error }) {
         <div className="buttons-container">
           <SelectButton
             name={'revenue'}
-            onChange={handleChange}
+            onClick={handleChange}
             title={'Rendimento'}
             revenue={simulation.revenue}
             data={[
@@ -52,7 +51,7 @@ export default function Form({ setSimulation, simulation, simulate, error }) {
           <SelectButton
             name={'indexing'}
             title={'Tipos de indexação'}
-            onChange={handleChange}
+            onClick={handleChange}
             indexing={simulation.indexing}
             data={[
               { value: 'pre', name: 'PRÉ' },
@@ -61,7 +60,7 @@ export default function Form({ setSimulation, simulation, simulate, error }) {
             ]}
           />
         </div>
-        <form>
+        <form className="form">
           <Input
             name={'initialContribution'}
             onChange={handleChange}

@@ -5,9 +5,8 @@ export default function Result({ name, value }) {
       <p>{name}</p>
       <p
         className={
-          name == 'Valor Final Líquido' || name == 'Ganho Líquido'
-            ? 'active-result'
-            : ''
+          (name == 'Valor Final Líquido' || name == 'Ganho Líquido') &&
+          'active-result'
         }
       >
         R${value}
