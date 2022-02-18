@@ -8,7 +8,7 @@ Este desafio tem como objetivo testar os meus conhecimentos relacionados ao fron
 
 ## O que foi utilizado
 
-- React como framework SPA.
+- React como biblioteca SPA.
 - React Hooks: useState, useEffect, remask (para mascarar os valores de alguns inputs).
 - Axios para comunicação com a API.
 - CSS para estilização.
