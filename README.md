@@ -18,7 +18,7 @@ Este desafio tem como objetivo testar os meus conhecimentos relacionados ao fron
 
 - Primeiramente deverá ser utilizada a API. Para isso, clone o seguinte repositório: https://github.com/eqi-investimentos/desafio-fake-api.
 - Instale suas dependências com:
-- `npm install` ou caso esteja utilizando o yarn `yarn` para instalar suas dependências.
+- `npm install` ou caso esteja utilizando o yarn `yarn`.
 - Execute o comando `npx json-server db.json`.
 - Após isso clone o repositório desta aplicação.
 - Excute o comando `npm install` ou `yarn` para instalar as dependências.
